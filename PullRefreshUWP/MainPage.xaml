@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="PullRefreshUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PullRefreshUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer x:Name="ScrollView" Loaded="ScrollView_Loaded" ViewChanged="ScrollView_ViewChanged">
+            <StackPanel Orientation="Vertical">
+                <RelativePanel x:Name="RefreshPanel">
+                    <ProgressRing x:Name="Progress" IsActive="False" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                                  RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
+                    <TextBlock x:Name="StateText" FontSize="14" RelativePanel.RightOf="Progress"/>
+                    <TextBlock x:Name="TimeText" FontSize="20" RelativePanel.RightOf="Progress" RelativePanel.Below="StateText"/>
+                    <AppBarButton x:Name="ArrowButton" RelativePanel.LeftOf="Progress" Icon="Download" IsEnabled="False"/>
+                </RelativePanel>
+                <ListView Name="DataList"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
