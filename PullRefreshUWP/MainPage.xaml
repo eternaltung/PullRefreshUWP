@@ -10,12 +10,13 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer x:Name="ScrollView" Loaded="ScrollView_Loaded" ViewChanged="ScrollView_ViewChanged">
             <StackPanel Orientation="Vertical">
-                <RelativePanel x:Name="RefreshPanel">
-                    <ProgressRing x:Name="Progress" IsActive="False" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                <RelativePanel x:Name="RefreshPanel" HorizontalAlignment="Center">
+                    <AppBarButton x:Name="ArrowButton" Icon="Download" IsEnabled="False"/>
+                    <ProgressRing x:Name="Progress" IsActive="False" RelativePanel.AlignRightWith="ArrowButton" 
                                   RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
-                    <TextBlock x:Name="StateText" FontSize="14" RelativePanel.RightOf="Progress"/>
-                    <TextBlock x:Name="TimeText" FontSize="20" RelativePanel.RightOf="Progress" RelativePanel.Below="StateText"/>
-                    <AppBarButton x:Name="ArrowButton" RelativePanel.LeftOf="Progress" Icon="Download" IsEnabled="False"/>
+                    <TextBlock x:Name="StateText" FontSize="14" RelativePanel.RightOf="Progress" RelativePanel.AlignTopWithPanel="True"/>
+                    <TextBlock x:Name="TimeText" FontSize="20" RelativePanel.RightOf="Progress"  
+                               RelativePanel.AlignBottomWithPanel="True"/>
                 </RelativePanel>
                 <ListView Name="DataList"/>
             </StackPanel>
